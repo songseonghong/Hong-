@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ទំនិញ - TechKh | Computer Store Cambodia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-laptop"></i> TechKh
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">ទំព័រដើម</a></li>
+                <li><a href="shopping.html" class="active">ទំនិញ</a></li>
+                <li><a href="payment.html">បង់ប្រាក់</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="cart-icon" onclick="openCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>ទំនិញទាំងអស់</h1>
+            <p>ជ្រើសរើសកុំព្យូទ័រនិងគ្រឿងបន្ថែមដែលអ្នកចូលចិត្ត</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="shop-container">
+        <!-- Filters Sidebar -->
+        <aside class="filters">
+            <div class="filter-section">
+                <h3><i class="fas fa-filter"></i> ប្រភេទ</h3>
+                <ul class="filter-list">
+                    <li><a href="#" class="filter-link active" data-category="all">ទាំងអស់</a></li>
+                    <li><a href="#" class="filter-link" data-category="laptops">កុំព្យូទ័រយួន</a></li>
+                    <li><a href="#" class="filter-link" data-category="desktops">កុំព្យូទ័រតុ</a></li>
+                    <li><a href="#" class="filter-link" data-category="components">គ្រឿងបង្គុំ</a></li>
+                    <li><a href="#" class="filter-link" data-category="accessories">គ្រឿងបន្ថែម</a></li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3><i class="fas fa-dollar-sign"></i> តម្លៃ</h3>
+                <ul class="filter-list">
+                    <li><a href="#" class="filter-link" data-price="all">ទាំងអស់</a></li>
+                    <li><a href="#" class="filter-link" data-price="0-500">$0 - $500</a></li>
+                    <li><a href="#" class="filter-link" data-price="500-1000">$500 - $1000</a></li>
+                    <li><a href="#" class="filter-link" data-price="1000-2000">$1000 - $2000</a></li>
+                    <li><a href="#" class="filter-link" data-price="2000+">$2000+</a></li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3><i class="fas fa-tags"></i> ម៉ាក</h3>
+                <ul class="filter-list">
+                    <li><a href="#" class="filter-link" data-brand="all">ទាំងអស់</a></li>
+                    <li><a href="#" class="filter-link" data-brand="dell">Dell</a></li>
+                    <li><a href="#" class="filter-link" data-brand="hp">HP</a></li>
+                    <li><a href="#" class="filter-link" data-brand="asus">Asus</a></li>
+                    <li><a href="#" class="filter-link" data-brand="lenovo">Lenovo</a></li>
+                    <li><a href="#" class="filter-link" data-brand="apple">Apple</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Products Grid -->
+        <div class="products-section">
+            <div class="products-header">
+                <p id="product-count">បង្ហាញ 12 ទំនិញ</p>
+                <select id="sort-select" class="sort-select">
+                    <option value="default">តម្រៀបតាម</option>
+                    <option value="price-low">តម្លៃ: ទាប → ខ្ពស់</option>
+                    <option value="price-high">តម្លៃ: ខ្ពស់ → ទាប</option>
+                    <option value="name">ឈ្មោះ A-Z</option>
+                </select>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products loaded via JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2><i class="fas fa-shopping-cart"></i> រទះទំនេញ</h2>
+                <button class="close-cart" onclick="closeCart()">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items loaded via JavaScript -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>សរុប:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <a href="payment.html" class="btn btn-primary btn-block">ទៅបង់ប្រាក់</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TechKh</h3>
+                    <p>ហាងលក់កុំព្យូទ័រដ៏ធំបំផុតនៅកម្ពុជា</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>តំណភ្ជាប់</h4>
+                    <ul>
+                        <li><a href="index.html">ទំព័រដើម</a></li>
+                        <li><a href="shopping.html">ទំនិញ</a></li>
+                        <li><a href="payment.html">បង់ប្រាក់</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>ទំនាក់ទំនង</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 012 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@techkh.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> ភ្នំពេញ, កម្ពុជា</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>វិធីបង់ប្រាក់</h4>
+                    <div class="payment-methods">
+                        <span><i class="fas fa-money-bill"></i> ABA</span>
+                        <span><i class="fas fa-money-bill"></i> Wing</span>
+                        <span><i class="fas fa-money-bill"></i> TrueMoney</span>
+                        <span><i class="fas fa-money-bill"></i> Cash</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechKh. រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

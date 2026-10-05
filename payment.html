@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>បង់ប្រាក់ - TechKh | Computer Store Cambodia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-laptop"></i> TechKh
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">ទំព័រដើម</a></li>
+                <li><a href="shopping.html">ទំនិញ</a></li>
+                <li><a href="payment.html" class="active">បង់ប្រាក់</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="shopping.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>បង់ប្រាក់</h1>
+            <p>បំពេញព័ត៌មានដើម្បីបញ្ជាទិញ</p>
+        </div>
+    </section>
+
+    <!-- Payment Form -->
+    <main class="payment-container">
+        <div class="payment-grid">
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h2><i class="fas fa-shopping-bag"></i> បញ្ជីទំនេញ</h2>
+                <div class="order-items" id="order-items">
+                    <!-- Order items loaded via JavaScript -->
+                </div>
+                <div class="order-totals">
+                    <div class="total-row">
+                        <span>តម្លៃទំនេញ:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span>ដឹកជញ្ជូន:</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>សរុប:</span>
+                        <span id="grand-total">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkout Form -->
+            <div class="checkout-form">
+                <h2><i class="fas fa-user"></i> ព័ត៌មានអតិថិជន</h2>
+                <form id="checkout-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">នាមខ្ទង់ *</label>
+                            <input type="text" id="first-name" name="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">គោត្តនាម *</label>
+                            <input type="text" id="last-name" name="last-name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">លេខទូរស័ព្ទ *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="012 345 678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">អ៊ីម៉ែល</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com">
+                    </div>
+
+                    <h2><i class="fas fa-map-marker-alt"></i> អាសយដ្ឋានដឹកជញ្ជូន</h2>
+
+                    <div class="form-group">
+                        <label for="address">អាសយដ្ឋានầnhà *</label>
+                        <input type="text" id="address" name="address" placeholder="ផ្ទះលេខ..., ផ្លូវ..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">ទីក្រុង/ខេត្ត *</label>
+                        <select id="city" name="city" required>
+                            <option value="">-- ជ្រើសរើស --</option>
+                            <option value="phnom-penh">ភ្នំពេញ</option>
+                            <option value="siem-reap">សៀមរាប</option>
+                            <option value="battambang">បាត់ដំបង</option>
+                            <option value="sihanouk">ក្រុងពាលី</option>
+                            <option value="kampot">កំពត</option>
+                            <option value="other">ទីក្រុង/ខេត្តផ្សេងទៀត</option>
+                        </select>
+                    </div>
+
+                    <h2><i class="fas fa-credit-card"></i> វិធីបង់ប្រាក់</h2>
+
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="aba" required>
+                            <div class="payment-card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ABA_Bank_logo.svg"
+                                    alt="ABA" onerror="this.style.display='none'">
+                                <span>ABA Bank</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="wing">
+                            <div class="payment-card">
+                                <span>Wing Money</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="truemoney">
+                            <div class="payment-card">
+                                <span>TrueMoney</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="cash">
+                            <div class="payment-card">
+                                <span>ប្រាក់សុទ្ទ</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">សំគាល់</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="សំគាល់បន្ថែម..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-large">
+                        <i class="fas fa-check-circle"></i> បញ្ជាទិញឥឡូវនេះ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>បញ្ជាទិញជោគជ័យ!</h2>
+            <p>អ្នកបានបញ្ជាទិញដោយជោគជ័យ</p>
+            <p class="order-id">លេខបញ្ជា: <span id="order-id"></span></p>
+            <p>យើងនឹងទាក់ទងអ្នកក្នុងពេលឆាប់ៗ</p>
+            <a href="index.html" class="btn btn-primary">ត្រឡប់ទៅទំព័រដើម</a>
+        </div>
+    </div>
+
+    <!-- Empty Cart Modal -->
+    <div class="modal" id="empty-cart-modal">
+        <div class="modal-content">
+            <div class="warning-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h2>រទះទំនេញទទេ</h2>
+            <p>សូមទៅទិញទំនេញជាមុនសិន</p>
+            <a href="shopping.html" class="btn btn-primary">ទៅទិញទំនេញ</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TechKh</h3>
+                    <p>ហាងលក់កុំព្យូទ័រដ៏ធំបំផុតនៅកម្ពុជា</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>តំណភ្ជាប់</h4>
+                    <ul>
+                        <li><a href="index.html">ទំព័រដើម</a></li>
+                        <li><a href="shopping.html">ទំនិញ</a></li>
+                        <li><a href="payment.html">បង់ប្រាក់</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>ទំនាក់ទំនង</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 012 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@techkh.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> ភ្នំពេញ, កម្ពុជា</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>វិធីបង់ប្រាក់</h4>
+                    <div class="payment-methods">
+                        <span><i class="fas fa-money-bill"></i> ABA</span>
+                        <span><i class="fas fa-money-bill"></i> Wing</span>
+                        <span><i class="fas fa-money-bill"></i> TrueMoney</span>
+                        <span><i class="fas fa-money-bill"></i> Cash</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechKh. រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Load order summary on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOrderSummary();
+        });
+    </script>
+</body>
+
+</html>
